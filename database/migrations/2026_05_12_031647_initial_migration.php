@@ -12,10 +12,22 @@ return new class extends Migration
     public function up(): void
     {
 
+        Schema::create('media', function (Blueprint $table) {
+            $table->id();
+        });
+
+        Schema::create('product_media', function (Blueprint $table) {
+            $table->id();
+        });
+
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->integer('product_sku');
             $table->string('product_name');
+        });
+
+        Schema::create('upsell_products', function (Blueprint $table) {
+            
         });
 
         Schema::create('orders', function (Blueprint $table) {
