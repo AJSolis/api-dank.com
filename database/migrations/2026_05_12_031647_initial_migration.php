@@ -14,20 +14,30 @@ return new class extends Migration
 
         Schema::create('media', function (Blueprint $table) {
             $table->id();
+            $table->string('media_type');
+            $table->string('media_path');
         });
 
         Schema::create('product_media', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('media_id');
         });
 
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('product_title');
+            $table->string('description');
+            $table->string('short_description');
             $table->integer('product_sku');
             $table->string('product_name');
+            $table->decimal('price', 3, 2);
+            $table->boolean('is_active')->default(true);
+            $table->timestamps();
         });
 
         Schema::create('upsell_products', function (Blueprint $table) {
-            
+            $table->id();
+            $table->foreignId('product_id');
         });
 
         Schema::create('orders', function (Blueprint $table) {
