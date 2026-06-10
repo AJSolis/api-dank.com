@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('short_description');
             $table->integer('product_sku');
             $table->string('product_name');
-            $table->decimal('price', 3, 2);
+            $table->decimal('price', 8, 2);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
