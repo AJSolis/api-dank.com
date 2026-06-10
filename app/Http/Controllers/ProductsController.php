@@ -13,4 +13,22 @@ class ProductsController extends Controller
     {
         return Products::all();
     }
+
+    // Get Products By ID
+    public function show($id)
+    {
+
+        // Find Product
+        $product = Product::find($id);
+
+        if (empty($product)) {
+            return response()->json([
+                'message' => 'Product Not Found'
+            ], 404);
+        }
+
+        return response()->json([
+            'product' => $product
+        ], 404);
+    }
 }
